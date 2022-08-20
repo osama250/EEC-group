@@ -7,7 +7,7 @@
         Add New Pharmacy
     </a>
 
-    <table class="table">
+    <table id="myTable">
         <thead>
           <tr>
             <th scope="col">Id</th>
@@ -35,14 +35,10 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-outline-danger">Danger</button>
                         </form>
-                        {{-- <a class="btn btn-outline-danger"
-                            href="{{ route('Pharmacies.destroy' , $pharmacy->id) }}" role="button">
-                            Delete
-                        </a> --}}
                     </td>
                 </tr>
             @endforeach
         </tbody>
-      </table>
+    </table>
 @endsection
 

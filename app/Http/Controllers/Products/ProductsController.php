@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Products;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductsController extends Controller
 {
 
     public function index()
     {
-        return view('Products.index');
+        $products  = Product::get();
+        return view('Products.index' , compact('products'));
     }
 
     public function create()
