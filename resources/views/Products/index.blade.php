@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <a class="btn btn-primary" href="{{ route('Products.index') }}" role="button" style="margin: 15px">
+    <a class="btn btn-primary" href="{{ route('Products.create') }}" role="button" style="margin: 15px">
         Add New Product
     </a>
 
@@ -27,13 +27,13 @@
                     <td>{{ $product->description }} </td>
                     <td>
                         <a class="btn btn-outline-success"
-                            href="{{ route('Pharmacies.edit' , $product->id) }}" role="button">
+                            href="{{ route('Products.edit' , $product->id) }}" role="button">
                             Edit
                         </a> <br> <br>
-                        <form action="{{ route('Pharmacies.destroy' , $product->id ) }}" method="POST">
+                        <form action="{{ route('Products.destroy' , $product->id ) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-outline-danger">Danger</button>
+                            <button type="submit" class="btn btn-outline-danger"> Delete </button>
                         </form>
                     </td>
                 </tr>

@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <a class="btn btn-primary" href="{{ route('Pharmacies.create') }}" role="button">
+    <a class="btn btn-primary" href="{{ route('Pharmacies.create') }}" role="button" style="margin: 15px">
         Add New Pharmacy
     </a>
 

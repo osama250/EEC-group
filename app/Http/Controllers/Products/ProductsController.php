@@ -5,9 +5,14 @@ namespace App\Http\Controllers\Products;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Pharmacy;
+use App\Http\Requests\ProductRequest;
+use App\Http\Requests\ProductEditRequest;
+use App\Trait\saveimage;
 
 class ProductsController extends Controller
 {
+    use saveimage;
 
     public function index()
     {
@@ -17,12 +22,23 @@ class ProductsController extends Controller
 
     public function create()
     {
-        //
+        $pharmacies  = Pharmacy::get();
+        return view('Products.create' , compact('pharmacies'));
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        //
+           $path        = 'images/Prodcut_Image';
+           $filename    = $this->Uploadphoto( $request->image , $path );
+
+        Product::create([
+            'title'        => $request->title ,
+            'description'  => $request->description ,
+            'image'        => $filename ,
+            'price'        => $request->price ,
+            'quantity'     => $request->quantity ,
+        ]);
+        return redirect()->route('Products.index');
     }
 
     public function show($id)
@@ -32,17 +48,33 @@ class ProductsController extends Controller
 
     public function edit($id)
     {
-        //
+        $product = Product::findorfail($id);
+        return  view('Products.edit' , compact('product'));
     }
 
 
-    public function update(Request $request, $id)
+    public function update( ProductEditRequest $request, $id)
     {
-        //
+        if (empty($request->image)) {
+            $filename  =  $request->old;
+        } else {
+            $path        = 'images/Prodcut_Image';
+            $filename    = $this->Uploadphoto( $request->image , $path);
+        }
+        $product = Product::findorfail($id);
+        $product->update([
+            'title'        => $request->title ,
+            'description'  => $request->description ,
+            'image'        => $filename ,
+            'price'        => $request->price ,
+            'quantity'     => $request->quantity ,
+        ]);
+        return redirect()->route('Products.index');
     }
 
     public function destroy($id)
     {
-        //
+        $product = Product::findorfail($id)->delete();
+        return redirect()->route('Products.index');
     }
 }

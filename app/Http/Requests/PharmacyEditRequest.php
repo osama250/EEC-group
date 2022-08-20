@@ -15,7 +15,8 @@ class PharmacyEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'              => 'required|unique:pharmacies,name,'. $this->id ,
+            // 'name'              => 'required|unique:pharmacies,name,'. $this->id ,
+            'name'              => 'required'. $this->id ,
             'address'           => 'required',
         ];
     }

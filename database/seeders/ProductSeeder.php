@@ -15,7 +15,7 @@ class ProductSeeder extends Seeder
         Product::create([
             'title'          => 'tst' ,
             'description'    => 'Very Health' ,
-            'imgae'          => 'tst.jpg',
+            'image'          => 'tst.jpg',
             'price'          => 12 ,
             'quantity'       => 15
         ]);
@@ -23,7 +23,7 @@ class ProductSeeder extends Seeder
         Product::create([
             'title'          => 'tst2' ,
             'description'    => 'Very Health' ,
-            'imgae'          => 'tst.jpg',
+            'image'          => 'tst.jpg',
             'price'          => 12 ,
             'quantity'       => 15
         ]);
@@ -31,7 +31,7 @@ class ProductSeeder extends Seeder
         Product::create([
             'title'          => 'tst3' ,
             'description'    => 'Very Health' ,
-            'imgae'          => 'tst.jpg',
+            'image'          => 'tst.jpg',
             'price'          => 12 ,
             'quantity'       => 15
         ]);
