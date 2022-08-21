@@ -15,8 +15,8 @@ class ProductFactory extends Factory
             'title'        => fake()->name() ,
             'description'  => fake()->text() ,
             'image'        => fake()->title() ,
-            'price'        => fake()->randomDigit() ,
-            'quantity'     => fake()->randomDigit() ,
+            'price'        => fake()->numberBetween($min = 1 , $max = 999) ,
+            'quantity'     => fake()->numberBetween($min = 1 ) ,
 
         ];
     }

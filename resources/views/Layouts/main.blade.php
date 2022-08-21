@@ -14,6 +14,11 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('Pro_Pharmacy') }}"">Add Products-With-Pharmacies </a>
         </li>
+        <form class="d-flex" role="search" action="{{ route('product.Search') }}" method="POST">
+            @csrf
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="name" required>
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
     </ul>
 
 

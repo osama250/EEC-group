@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Pharmacy;
 use App\Http\Requests\ProductRequest;
 use App\Http\Requests\ProductEditRequest;
+use App\Http\Requests\SearchRequest;
 use App\Trait\saveimage;
 
 class ProductsController extends Controller
@@ -43,7 +44,8 @@ class ProductsController extends Controller
 
     public function show($id)
     {
-        //
+        $product = Product::with('pharmacies')->findorfail($id);
+        return view('Products.detail' , compact('product'));
     }
 
     public function edit($id)
@@ -51,7 +53,6 @@ class ProductsController extends Controller
         $product = Product::findorfail($id);
         return  view('Products.edit' , compact('product'));
     }
-
 
     public function update( ProductEditRequest $request, $id)
     {
@@ -76,5 +77,11 @@ class ProductsController extends Controller
     {
         $product = Product::findorfail($id)->delete();
         return redirect()->route('Products.index');
+    }
+
+    public function Search( Request $request ) {
+        $search   =  $request->name;
+        $products = Product::query()->where('title', 'LIKE', "%{$search}%")->get();
+        return view('Products.search' , compact('products') );
     }
 }

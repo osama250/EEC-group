@@ -11,6 +11,7 @@ class Pharmacy extends Model
     use HasFactory;
 
     protected $fillable = ['name' , 'address'];
+    protected $hidden = ['pivot'];
 
     public function products()
     {

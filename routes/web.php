@@ -21,3 +21,6 @@ Route::resource('Products', ProductsController::class);
 Route::get('Pharmacy\Products\Add', [ ProductPharmacyController::class , 'index'] )->name('Pro_Pharmacy');
 
 Route::post('Pharmacy\Products\Add', [ ProductPharmacyController::class , 'store'] )->name('Pro_Pharmacy.store');
+
+// Search
+Route::post('Products', [ ProductsController::class , 'Search' ] )->name('product.Search');

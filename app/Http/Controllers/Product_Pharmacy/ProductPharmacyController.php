@@ -23,7 +23,7 @@ class ProductPharmacyController extends Controller
             return redirect()->route('Pro_Pharmacy');
         }
 
-        $pharmacy->products()->attach( $request->product_id );
+        $pharmacy->products()->syncWithoutDetaching( $request->product_id );
         return redirect()->route('Pro_Pharmacy');
     }
 }
