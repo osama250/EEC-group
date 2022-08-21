@@ -1,16 +1,12 @@
 @extends('Layouts.main')
-@section('name' , 'Result-Search')
-
-
+@section('name' , 'View-Search')
 
 @section('content')
-
-    <h4 style="margin-bottom: 20px" class="text-center"> Search-Result </h4>
-    @foreach ( $products as $product )
-    <a class="btn btn-outline-warning" style="margin-right: 10px; margin-bottom: 20px"
-        href="{{ route('Products.show' , $product->id ) }}" role="button">
-        {{ $product->title  }}
-    </a>
-    @endforeach
-
+            <h4 class="text-center" style="margin-bottom:10px;"> Wirte Name Of product </h4>
+       <form class="d-flex" role="search" action="{{ route('productSearch.result') }}" method="POST">
+            @csrf
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="name" required>
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
 @endsection
+
