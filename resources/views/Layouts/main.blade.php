@@ -11,6 +11,9 @@
         <li class="nav-item">
         <a class="nav-link" href="{{ route('Products.index') }}"">Products</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('Pro_Pharmacy') }}"">Add Products-With-Pharmacies </a>
+        </li>
     </ul>
 
 

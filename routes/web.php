@@ -3,17 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Products\ProductsController;
 use App\Http\Controllers\Pharmacies\PharmaciesController;
+use App\Http\Controllers\Product_Pharmacy\ProductPharmacyController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('index');
@@ -24,3 +16,8 @@ Route::resource('Pharmacies', PharmaciesController::class);
 
 // Products
 Route::resource('Products', ProductsController::class);
+
+// products-pharmacies
+Route::get('Pharmacy\Products\Add', [ ProductPharmacyController::class , 'index'] )->name('Pro_Pharmacy');
+
+Route::post('Pharmacy\Products\Add', [ ProductPharmacyController::class , 'store'] )->name('Pro_Pharmacy.store');

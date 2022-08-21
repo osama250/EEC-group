@@ -14,6 +14,6 @@ class Product extends Model
 
     public function pharmacies()
     {
-        return $this->belongsToMany(Pharmacy::class , 'product__pharmacays');
+        return $this->belongsToMany(Pharmacy::class , 'pharmacy_product');
     }
 }
