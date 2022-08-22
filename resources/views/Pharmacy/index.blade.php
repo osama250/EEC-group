@@ -3,6 +3,7 @@
 
 @section('content')
 
+        <h4 class="text-center"> All Pharmacies </h4>
     <a class="btn btn-primary" href="{{ route('Pharmacies.create') }}" role="button" style="margin: 15px">
         Add New Pharmacy
     </a>
@@ -22,7 +23,7 @@
             @endphp
             @foreach ( $pharmacies as $pharmacy )
                 <tr>
-                    <th scope="row">{{ $i++ }}</th>
+                    <th>{{ $i++ }}</th>
                     <td>{{ $pharmacy->name  }}</td>
                     <td>{{ $pharmacy->address }} </td>
                     <td>

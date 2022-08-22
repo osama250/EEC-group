@@ -32,11 +32,6 @@
                       aria-describedby="emailHelp"  placeholder="Write Adrees Here...">
                 </div>
                 <div class="col-lg-6">
-                    <label for="exampleInputEmail1" class="form-label"> Price </label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name = "price"
-                      aria-describedby="emailHelp"  placeholder="Write Adrees Here...">
-                </div>
-                <div class="col-lg-6">
                     <label for="exampleInputEmail1" class="form-label"> quantity </label>
                     <input type="text" class="form-control" id="exampleInputEmail1" name = "quantity"
                       aria-describedby="emailHelp"  placeholder="Write Adrees Here...">

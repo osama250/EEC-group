@@ -8,6 +8,7 @@ use App\Models\Pharmacy;
 use App\Http\Requests\PharmacyRequest;
 use App\Http\Requests\PharmacyEditRequest;
 
+
 class PharmaciesController extends Controller
 {
 
@@ -57,4 +58,5 @@ class PharmaciesController extends Controller
         $pharmacy = Pharmacy::findorfail($id)->delete();
         return redirect()->route('Pharmacies.index');
     }
+
 }

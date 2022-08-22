@@ -67,7 +67,6 @@ class ProductsController extends Controller
             'title'        => $request->title ,
             'description'  => $request->description ,
             'image'        => $filename ,
-            'price'        => $request->price ,
             'quantity'     => $request->quantity ,
         ]);
         return redirect()->route('Products.index');
@@ -79,13 +78,17 @@ class ProductsController extends Controller
         return redirect()->route('Products.index');
     }
 
-    public function SearchView() {
+    public function SearchView()
+    {
         return view('Products.search');
     }
 
-    public function Search( Request $request ) {
+    public function Search( Request $request )
+    {
         $search   =  $request->name;
         $products = Product::query()->where('title', 'LIKE', "%{$search}%")->get();
         return view('Products.viewsearch' , compact('products') );
     }
+
+
 }

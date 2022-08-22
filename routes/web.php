@@ -8,6 +8,7 @@ use App\Http\Controllers\Product_Pharmacy\ProductPharmacyController;
 
 
 Route::get('/', function () {
+    // return view('Pharmacy.index');
     return view('index');
 })->name('homepage');
 
@@ -25,4 +26,7 @@ Route::post('Pharmacy\Products\Add', [ ProductPharmacyController::class , 'store
 // Search
 Route::get('products', [ ProductsController::class , 'SearchView' ] )->name('product.ViewSearch');
 Route::post('products', [ ProductsController::class , 'Search' ] )->name('productSearch.result');
+
+
+Route::get('tst/{product_id}', [ PharmaciesController::class , 'Tst' ] );
 

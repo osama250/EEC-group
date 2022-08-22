@@ -6,6 +6,13 @@
     <h4 class="text-center" style="margin-bottom: 40px"> Products-Pharmacies </h4>
     <form action="{{ route('Pro_Pharmacy.store') }}" method="POST">
         @csrf
+
+        <div class="col-lg-6">
+            <label for="exampleInputEmail1" class="form-label"> Price </label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name = "price"
+              aria-describedby="emailHelp"  placeholder="Write Adrees Here...">
+        </div> <br>
+
             <select class="form-select" aria-label="Default select example" name="pharmacy_id" required>
                 <option selected> Choose Your Pharmacy </option>
                     @foreach ( $pharmacies as $pharmacy )
@@ -19,6 +26,7 @@
                         <option value="{{ $product->id }}">{{ $product->title }}</option>
                     @endforeach
             </select>
+
             <button type="submit" class="btn btn-primary" style="margin-top: 20px;"> Save </button>
     </form>
 
